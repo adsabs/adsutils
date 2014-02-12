@@ -1,3 +1,5 @@
 pip>=1.4.1
 unittest2
 nose
+requests
+simplejson

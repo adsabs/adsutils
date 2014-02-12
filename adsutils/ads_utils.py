@@ -3,6 +3,7 @@ import sys
 from Unicode import UnicodeHandler
 from config import config
 from .utils import *
+from .errors import *
 
 unicode_file = "%s/%s" % (config.DATA_DIR, config.UNICODE_DATA)
 uh = UnicodeHandler(file=unicode_file)
@@ -94,3 +95,25 @@ def make_bibcode(data):
         bibcode += '.'
 
     return bibcode
+
+def resolve_references(refdata):
+    # Instantiate the Resolver class
+    rsvr = Resolver()
+    # First clean the reference data we have been given
+    if isinstance(refdata, str):
+        try:
+            refdata = uh.u2asc(refdata)
+        except:
+            raise UnicodeDecodingError
+    elif isinstance(refdata, list):
+        tmp = []
+        for ref in refdata:
+            try:
+                tmp.append(uh.u2asc(ref))
+            except:
+                sys.stderr.write('Unicode error while converting: %s\n'%ref)
+        refdata = tmp
+    # Now hand the referene data over to the resolver
+    rsvr.resolve(refdata)
+    # Return the results
+    return rsvr.results
