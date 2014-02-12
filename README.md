@@ -67,4 +67,5 @@ The resolver can return three classes of 'confidence' levels:
 * Success
 * Failed
 * Not verified
+
 The only class that needs some explanation is the last one; it is quite possible that the metadata contains enough information to guess a bibcode. The year could be off by 1 (which can also apply to the page or volume number) or a journal was abbreviated in a non-standard way. It is also possible that all the metadata is correct, but the record is not in the ADS database. Even though a bibcode is returned, you cannot assume it is correct. These <em>Not verified</em> cases need further inspection.
