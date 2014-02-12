@@ -1,10 +1,13 @@
 import re
 import sys
+import string
 from Unicode import UnicodeHandler
 from config import config
 from .utils import *
 from .errors import *
-
+import sourcematchers as sourcematchers
+_defaultSourcematcher = sourcematchers.TrigdictSourceMatcher()
+    
 unicode_file = "%s/%s" % (config.DATA_DIR, config.UNICODE_DATA)
 uh = UnicodeHandler(file=unicode_file)
 
@@ -117,3 +120,31 @@ def resolve_references(refdata):
     rsvr.resolve(refdata)
     # Return the results
     return rsvr.results
+
+def get_pub_abbreviation(pubstring, numBest=5, exact=None):
+    """
+    Get ADS journal abbreviation ("bibstem") candidates for a given publication name.
+    * 'exact': if True results will only be returned if an exact match was found
+    * 'numBest': maximum number of guesses to return
+    A list of tuples will be returned, each tuple consisting of a score and a bibstem
+    """
+    if exact:
+        # Only try to find exact matches
+        bibstems = _defaultSourcematcher.getExactMatch(string.upper(pubstring))
+    else:
+        # Allow fuzzy matching
+        bibstems = _defaultSourcematcher.getBestMatches(string.upper(pubstring), numBest)
+        if re.search(r"L(ett(ers)?)?$",pubstring):
+            addit = _defaultSourcematcher.getBestMatches(re.sub(r"(?i)\s*L(ett(ers)?)?$", "", pubstring.upper()), 2)
+            if addit:
+                bibstems.extend(addit)
+                bibstems.sort()
+    # Make the list of results unique
+    try:
+        bibstems = list(set(bibstems))
+    except:
+        bibstems = []
+    # Sort the list of results from highest score to lowest score
+    bibstems.sort(key=lambda tup: tup[0], reverse=True)
+
+    return bibstems

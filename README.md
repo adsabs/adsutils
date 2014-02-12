@@ -69,3 +69,39 @@ The resolver can return three classes of 'confidence' levels:
 * Not verified
 
 The only class that needs some explanation is the last one; it is quite possible that the metadata contains enough information to guess a bibcode. The year could be off by 1 (which can also apply to the page or volume number) or a journal was abbreviated in a non-standard way. It is also possible that all the metadata is correct, but the record is not in the ADS database. Even though a bibcode is returned, you cannot assume it is correct. These <em>Not verified</em> cases need further inspection.
+
+## Utility to get ADS journal abbreviation from publication name
+
+An essential part of the ADS publication identifier (<em>bibcode</em>) is the publication abbreviation (<em>bibstem</em>). This utility takes a string representing the publication name and attempts to match it to an ADS abbreviation. It returns a list of candidates and associated scores.
+
+Import the relevant module:
+```
+from adsutils import get_pub_abbreviation
+```
+The bibstem candidates are then found as follows:
+```
+pubstring = 'American Astronautical Society Meeting'
+result = get_pub_abbreviation(pubstring)
+```
+which returns a list of tuples with candidates and their associated scores (sorted by score, descending):
+```
+[(1.0, 'aans.meet'), (0.98545706272125244, 'AAS......'), (0.95637118816375732, 'aans.symp'), (0.93698060512542725, 'AAS......'), (0.91897505521774292, 'acs..meet')]
+```
+You can specify that you are only interested in exact matches in the following way:
+```
+pubstring = 'Astrophysical Journal'
+result = get_pub_abbreviation(pubstring, exact=True)
+```
+which would result in
+```
+[(1, 'ApJ......')]
+```
+while
+```
+pubstring = 'Astrophysical Journ'
+result = get_pub_abbreviation(pubstring, exact=True)
+```
+would result in
+```
+[]
+```
