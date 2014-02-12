@@ -9,6 +9,11 @@ class AppConfig(object):
     NEEDS_ISSUE      = 'needs_issue.dat'
     IOP_ELECTR       = 'iop_elec.dat'
 
+    RESCLIENT_VERSION= '1.0'
+    USER_NAME        = ''
+    RESOLVER_URL     = 'http://adsres.cfa.harvard.edu/cgi-bin/refcgi.py'
+    LEVEL_MAPPING    = {'0':'Failed','1':'Success','2':'Success','3':'Success','4':'Success','5':'Not verified'}
+    URL_MAX          = 4096
 try:
     from local_config import LocalConfig
 except ImportError:
