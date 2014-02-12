@@ -14,6 +14,14 @@ class AppConfig(object):
     RESOLVER_URL     = 'http://adsres.cfa.harvard.edu/cgi-bin/refcgi.py'
     LEVEL_MAPPING    = {'0':'Failed','1':'Success','2':'Success','3':'Success','4':'Success','5':'Not verified'}
     URL_MAX          = 4096
+
+    SOURCE_DATA      = ['journals.dat',
+                        'journals_abbrev.dat',
+                        'conferences.dat',
+                        'conferences_abbrev.dat',
+                        'preprints.dat',
+                        'aps_abbrev.dat',
+                        'bibstems.dat' ]
 try:
     from local_config import LocalConfig
 except ImportError:
