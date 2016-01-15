@@ -13,6 +13,14 @@ virtualenv --no-site-packages <destination directory>
 ```
 source ~/envs/adsutils/bin/activate
 ```
+Clone this repo somewhere and then either run
+```
+pip install -r requirements.txt
+```
+or
+```
+python setup.py install
+```
 ## Utility to create bibcodes
 
 Import the relevant module:
