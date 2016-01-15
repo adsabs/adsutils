@@ -3,6 +3,16 @@ ADSutils
 
 This is a module with various ADS specific utilities
 
+## Installing
+
+It's best to work with this module in a virtual environment. Create a virtual environment like
+```
+virtualenv --no-site-packages <destination directory>
+```
+(like e.g. `~/envs/adsutils`) and then start it
+```
+source ~/envs/adsutils/bin/activate
+```
 ## Utility to create bibcodes
 
 Import the relevant module:
