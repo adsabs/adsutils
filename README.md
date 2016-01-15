@@ -21,6 +21,10 @@ or
 ```
 python setup.py install
 ```
+Test if things are working:
+```
+python tests/nosetests.py
+```
 ## Utility to create bibcodes
 
 Import the relevant module:
