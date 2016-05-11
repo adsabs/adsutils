@@ -2,9 +2,10 @@
 
 from setuptools import setup
 from pip.req import parse_requirements
+from pip.download import PipSession
 
 # parse_requirements() returns generator of pip.req.InstallRequirement objects
-install_reqs = parse_requirements('./requirements.txt')
+install_reqs = parse_requirements('./requirements.txt', session=PipSession())
 reqs = [str(ir.req) for ir in install_reqs]
 
 setup(
