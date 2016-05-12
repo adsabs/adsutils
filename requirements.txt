@@ -3,4 +3,5 @@ unittest2
 nose
 requests
 simplejson
--e git+https://github.com/ehenneken/ads_c_modules#egg=ads_c_modules
+git+https://github.com/ehenneken/ads_c_modules#egg=ads-modules
+
