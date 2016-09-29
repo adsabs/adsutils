@@ -1,9 +1,17 @@
 language: python
 python:
-  - "2.7"
+- '2.7'
 install:
-  - pip install -r requirements.txt
-script: 
- - nosetests --with-coverage test
+- pip install -r requirements.txt
+script:
+- nosetests --with-coverage test
 after_success:
- - coveralls
+- coveralls
+deploy:
+  provider: pypi
+  user: adsabs
+  password:
+    secure: rzrOB+H+/w2vmujVqd8C4k8VdtYf794VkOg4gqBCk6nVyLsIwZMd/lHQeSIVxUz/HCYDWaGk6M17Iv2JqSdTsWk+sJV+3ykUCbN3SMFF4dLN5/20QyjihQmNYcErWHHaN0CdmJ6VTDR7y6HOMmmEzCYFL4QQX+D3ld1BmPlKlfk=
+  on:
+    tags: true
+    repo: adsabs/adsutils
