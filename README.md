@@ -5,15 +5,23 @@ This is a module with various ADS specific utilities
 
 ## Installing
 
-It's best to work with this module in a virtual environment. Create a virtual environment like
+Clone the repo to a local directory
 ```
-virtualenv --no-site-packages <destination directory>
+git clone https://github.com/adsabs/adsutils adsutils 
 ```
-(like e.g. `~/envs/adsutils`) and then start it
+Go into the newly created directory and create a virtual environment
 ```
-source ~/envs/adsutils/bin/activate
+virtualenv --no-site-packages -ppython2.7 venv
 ```
-Clone this repo somewhere and then either run
+and start it
+```
+source venv/bin/activate
+```
+Update `pip` like
+```
+pip install -U pip
+```
+and then install the required software
 ```
 pip install -r requirements.txt
 ```
