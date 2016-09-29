@@ -3,7 +3,6 @@
 import os
 import sys
 import re
-from pip.req import parse_requirements
 
 try:
     from setuptools import setup
@@ -28,14 +27,14 @@ contents = readfile(os.path.join(
 
 version = version_regex.findall(contents)[0]
 
-install_reqs = parse_requirements(os.path.join(os.path.dirname(__file__), "requirements.txt"))
-reqs = [str(ir.req) for ir in install_reqs]
+with open os.path.join(os.path.dirname(__file__), "requirements.txt") as f:
+    required = f.read().splitlines()
 
 setup(
     name = 'adsutils',
     version = version,
     long_description = readfile(os.path.join(os.path.dirname(__file__), "README.md")), 
-    install_requires = reqs,
+    install_requires = required,
     author = 'Edwin Henneken',
     author_email = 'ehenneken@cfa.harvard.edu',
     url = 'http://github.com/adsabs/adsutils',
