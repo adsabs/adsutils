@@ -194,7 +194,7 @@ class Resolver:
         # Fire off the requests to the reference resolver service
         for ref in reflist:
             self.params['resolvethose'] = ref
-            self.headers['Content-Length'] = len(self.params['resolvethose'])
+            self.headers['Content-Length'] = str(len(self.params['resolvethose']))
             try:
                 r = requests.post(self.resolverURL, data=self.params, headers=self.headers)
             except:
