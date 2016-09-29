@@ -4,5 +4,5 @@ nose
 requests
 simplejson
 coveralls
-git+https://github.com/ehenneken/ads_c_modules#egg=ads-modules
+-e git://github.com/ehenneken/ads_c_modules#egg=ads-modules
 
