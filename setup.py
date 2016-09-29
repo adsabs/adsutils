@@ -34,7 +34,7 @@ setup(
     name = 'adsutils',
     version = version,
     long_description = readfile(os.path.join(os.path.dirname(__file__), "README.md")), 
-    install_requires = required,
+    install_requires = [r for r in required if r],
     author = 'Edwin Henneken',
     author_email = 'ehenneken@cfa.harvard.edu',
     url = 'http://github.com/adsabs/adsutils',
