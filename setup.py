@@ -1,23 +1,43 @@
+# coding: utf-8
 #!/usr/bin/env python
+import os
+import sys
+import re
 
-from setuptools import setup
-from pip.req import parse_requirements
-from pip.download import PipSession
+try:
+    from setuptools import setup
 
-# parse_requirements() returns generator of pip.req.InstallRequirement objects
-install_reqs = parse_requirements('./requirements.txt', session=PipSession())
-reqs = [str(ir.req) for ir in install_reqs]
+except ImportError:
+    from distutils.core import setup
+
+major, minor1, minor2, release, serial =  sys.version_info
+
+readfile_kwargs = {"encoding": "utf-8"} if major >= 3 else {}
+
+def readfile(filename):
+    with open(filename, **readfile_kwargs) as fp:
+        contents = fp.read()
+    return contents
+
+version_regex = re.compile("__version__ = \"(.*?)\"")
+contents = readfile(os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "adsutils", "__init__.py"))
+
+version = version_regex.findall(contents)[0]
 
 setup(
     name = 'adsutils',
-    version = '0.1',
+    version = version,
     description = 'ADS utilties',
-    long_description = open('README.md').read(), 
-    install_requires = reqs,
+    long_description = readfile(os.path.join(os.path.dirname(__file__), "README.md")), 
+    install_requires = readfile(os.path.join(os.path.dirname(__file__), "requirements.txt")),
     author = 'Edwin Henneken',
     author_email = 'ehenneken@cfa.harvard.edu',
     url = 'http://github.com/adsabs/adsutils',
-    packages = ['adsutils'],
+    license="MIT",
+    description="A Python tool with some general ADS utilities",
+    packages = ['adsutils', 'adsutils.test'],
     classifiers = [
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
