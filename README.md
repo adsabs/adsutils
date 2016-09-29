@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/adsabs/adsutils.svg?branch=master)](https://travis-ci.org/adsabs/adsutils)
+[![Coverage Status](https://coveralls.io/repos/adsabs/adsutils/badge.svg)](https://coveralls.io/r/adsabs/adsutils)
+
 ADSutils
 ========
 
