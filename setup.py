@@ -27,7 +27,7 @@ contents = readfile(os.path.join(
 
 version = version_regex.findall(contents)[0]
 
-with open(os.path.join(os.path.dirname(__file__), "requirements.txt")) as f:
+with open("requirements.txt") as f:
     required = f.read().splitlines()
 
 reqs = [r for r in required if '//' not in r]
