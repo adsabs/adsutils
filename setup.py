@@ -31,14 +31,12 @@ with open("requirements.txt") as f:
     required = f.read().splitlines()
 
 reqs = [r for r in required if '//' not in r]
-deplinks = [r.replace('-e ','').replace('git:','http:') for r in required if '//' in r]
 
 setup(
     name = 'adsutils',
     version = version,
     long_description = readfile(os.path.join(os.path.dirname(__file__), "README.md")), 
     install_requires = reqs,
-    dependency_links = deplinks,
     author = 'Edwin Henneken',
     author_email = 'ehenneken@cfa.harvard.edu',
     url = 'http://github.com/adsabs/adsutils',
