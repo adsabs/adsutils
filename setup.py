@@ -22,12 +22,12 @@ def readfile(filename):
 
 version_regex = re.compile("__version__ = \"(.*?)\"")
 contents = readfile(os.path.join(
-    os.path.dirname(os.path.abspath(__file__)),
+    os.path.dirname(os.path.abspath('__file__')),
     "adsutils", "__init__.py"))
 
 version = version_regex.findall(contents)[0]
 
-with open("requirements.txt") as f:
+with open(os.path.join(os.path.dirname(os.path.abspath('__file__')),"requirements.txt")) as f:
     required = f.read().splitlines()
 
 reqs = [r for r in required if '//' not in r]
@@ -35,7 +35,7 @@ reqs = [r for r in required if '//' not in r]
 setup(
     name = 'adsutils',
     version = version,
-    long_description = readfile(os.path.join(os.path.dirname(__file__), "README.md")), 
+    long_description = readfile(os.path.join(os.path.dirname('__file__'), "README.md")), 
     install_requires = reqs,
     author = 'Edwin Henneken',
     author_email = 'ehenneken@cfa.harvard.edu',
