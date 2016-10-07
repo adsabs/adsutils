@@ -27,16 +27,11 @@ contents = readfile(os.path.join(
 
 version = version_regex.findall(contents)[0]
 
-with open(os.path.join(os.path.dirname(os.path.abspath('__file__')),"requirements.txt")) as f:
-    required = f.read().splitlines()
-
-reqs = [r for r in required if '//' not in r]
-
 setup(
     name = 'adsutils',
     version = version,
     long_description = readfile(os.path.join(os.path.dirname('__file__'), "README.md")), 
-    install_requires = reqs,
+    install_requires = ['pip>=1.4.1', 'unittest2', 'nose', 'requests', 'simplejson', 'ads_modules'],
     author = 'Edwin Henneken',
     author_email = 'ehenneken@cfa.harvard.edu',
     url = 'http://github.com/adsabs/adsutils',
