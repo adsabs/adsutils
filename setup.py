@@ -30,7 +30,6 @@ version = version_regex.findall(contents)[0]
 setup(
     name = 'adsutils',
     version = version,
-    long_description = readfile(os.path.join(os.path.dirname('__file__'), "README.md")), 
     install_requires = ['pip>=1.4.1', 'unittest2', 'nose', 'requests', 'simplejson', 'ads_modules'],
     author = 'Edwin Henneken',
     author_email = 'ehenneken@cfa.harvard.edu',
@@ -38,8 +37,6 @@ setup(
     license="MIT",
     description="A Python tool with some general ADS utilities",
     packages = ['adsutils', 'test'],
-    package_data={'': ['requirements.txt','README.md']},
-    include_package_data=True,
     classifiers = [
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
