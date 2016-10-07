@@ -7,6 +7,7 @@ omit =
     */site-packages/nose/*
     */unittest2/*
     *test/*
+    *adsutils/Unicode.py
 
 [report]
 exclude_lines =
