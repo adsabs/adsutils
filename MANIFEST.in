@@ -1,3 +1,3 @@
 include *.md
-recursive-include *.dat
+include data/*.dat
 include requirements.txt
