@@ -38,6 +38,8 @@ setup(
     license="MIT",
     description="A Python tool with some general ADS utilities",
     packages = ['adsutils', 'test'],
+    package_data={'': ['requirements.txt','README.md']},
+    include_package_data=True,
     classifiers = [
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
