@@ -4,7 +4,7 @@ python:
 install:
 - pip install -r requirements.txt
 script:
-- nosetests --with-coverage test
+- nosetests --with-coverage adsutils/test
 after_success:
 - coveralls
 deploy:
