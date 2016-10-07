@@ -34,7 +34,7 @@ setup(
     url = 'http://github.com/adsabs/adsutils',
     license="MIT",
     description="A Python tool with some general ADS utilities",
-    packages = ['adsutils', 'test'],
+    packages = ['adsutils', 'test' ,'config', 'data', 'examples'],
     classifiers = [
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
