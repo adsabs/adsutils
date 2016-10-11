@@ -7,8 +7,13 @@ ADSutils
 This is a module with various ADS specific utilities
 
 ## Installing
+If you just want to work with these utilities, you can install `adsutils` with pip. It is still advisable to use it in a virtual environment. In your virtual environment just do
+```
+pip install adsutils
+```
+and you should be all set to go. This has been tested under MacOS X, CentOS and Ubuntu with Python 2.7.
 
-Clone the repo to a local directory
+In case you want to work with the code: clone the repo to a local directory
 ```
 git clone https://github.com/adsabs/adsutils adsutils 
 ```
@@ -30,7 +35,7 @@ pip install -r requirements.txt
 ```
 Test if things are working:
 ```
-python test/nosetests.py
+python adsutils/test/nosetests.py
 ```
 ## Utility to create bibcodes
 
