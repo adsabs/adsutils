@@ -24,7 +24,7 @@ contents = readfile(os.path.join(
     os.path.dirname(os.path.abspath('__file__')),
     "adsutils", "__init__.py"))
 
-data_dir = os.path.join(os.path.dirname(os.path.abspath('__file__')),"adsutils","data"))
+data_dir = os.path.join(os.path.dirname(os.path.abspath('__file__')),"adsutils","data")
 
 version = version_regex.findall(contents)[0]
 
