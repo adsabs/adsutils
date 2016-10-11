@@ -19,9 +19,12 @@ def readfile(filename):
     return contents
 
 version_regex = re.compile("__version__ = \"(.*?)\"")
+
 contents = readfile(os.path.join(
     os.path.dirname(os.path.abspath('__file__')),
     "adsutils", "__init__.py"))
+
+data_dir = os.path.join(os.path.dirname(os.path.abspath('__file__')),"adsutils","data"))
 
 version = version_regex.findall(contents)[0]
 
@@ -35,7 +38,7 @@ setup(
     license="MIT",
     description="A Python tool with some general ADS utilities",
     packages = ['adsutils', 'adsutils.test'],
-    data_files= [('adsutils/data', ['aps_abbrev.dat','bibstems.dat','conferences.dat','conferences_abbrev.dat','iop_elec.dat','journals.dat','journals_abbrev.dat','needs_issue.dat','notinADS.dat','preprints.dat','unicode.dat'])],
+    data_files= [(data_dir, ['aps_abbrev.dat','bibstems.dat','conferences.dat','conferences_abbrev.dat','iop_elec.dat','journals.dat','journals_abbrev.dat','needs_issue.dat','notinADS.dat','preprints.dat','unicode.dat'])],
     classifiers = [
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
