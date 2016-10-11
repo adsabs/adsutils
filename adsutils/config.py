@@ -4,7 +4,7 @@ _basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 class AppConfig(object):
 
-    DATA_DIR         = '%s/data' % _basedir
+    DATA_DIR         = '%s/adsutils/data' % _basedir
     UNICODE_DATA     = 'unicode.dat'
     NEEDS_ISSUE      = 'needs_issue.dat'
     IOP_ELECTR       = 'iop_elec.dat'

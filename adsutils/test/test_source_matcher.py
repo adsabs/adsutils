@@ -16,7 +16,6 @@ if sys.version_info < (2,7):
 else:
     import unittest
 
-from config import config
 from adsutils import get_pub_abbreviation
 from adsutils.errors import *
 
