@@ -2,7 +2,7 @@
 
 """ A Python tool with some general ADS utilities """
 
-__version__ = "1.0.31"
+__version__ = "1.0.32"
 
 from ads_utils import make_bibcode
 from ads_utils import resolve_references
