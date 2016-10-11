@@ -38,6 +38,7 @@ setup(
     license="MIT",
     description="A Python tool with some general ADS utilities",
     packages = ['adsutils', 'adsutils.test'],
+    include_package_data=True,
     package_data={'adsutils': ['adsutils/data/*.dat']},
     #data_files= [(data_dir, ['aps_abbrev.dat','bibstems.dat','conferences.dat','conferences_abbrev.dat','iop_elec.dat','journals.dat','journals_abbrev.dat','needs_issue.dat','notinADS.dat','preprints.dat','unicode.dat'])],
     classifiers = [
